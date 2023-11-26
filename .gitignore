@@ -19,5 +19,3 @@ __pycache__/
 # Python env
 .env
 
-# Ignore CSV files
-*.csv
