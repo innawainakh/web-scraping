@@ -61,7 +61,8 @@ weather_data_text2=weather2()
 print(weather_data_text2)
 time_data_text = time_zone()
 print(time_data_text)
-with open(f"{user_input.lower()}.csv", "a",encoding="utf-8")as file:
+
+with open(f"countries/{user_input.lower()}.csv", "a",encoding="utf-8")as file:
  csv_writer=csv.writer(file)
  csv_writer.writerow(["data ", "value" ])
  csv_writer.writerow([weather_data_text1])
