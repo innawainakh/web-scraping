@@ -1,0 +1,23 @@
+# .gitignore
+
+# Virtual Environment
+venv/
+
+# Compiled Python files
+*.pyc
+__pycache__/
+
+# .vscode
+.vscode/
+
+# IDE specific files
+.idea/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Python env
+.env
+
+# Ignore CSV files
+*.csv
