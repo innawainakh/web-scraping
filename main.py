@@ -3,7 +3,9 @@ from bs4 import BeautifulSoup
 import csv
 user_input = input("enter country:  ")
 def weather1():
+    #the url of the main weather page
     weather_url = "https://www.timeanddate.com/weather/"
+    #adding the main url will the user input will go to the page of country weather the user choosed
     weather = weather_url + user_input
     weather_page = requests.get(weather)
     content = weather_page.content
@@ -11,13 +13,18 @@ def weather1():
     web1 = soup.findAll("div", {"class": "bk-focus__info"})
     weather_data_web1=[]
     for i in web1:
+        # tbody because all the data i need is in a table
         country=i.contents[0].find("tbody")
+        #  for loop in all the rows i want to print data from
         rows = country.find_all("tr")
         for row in rows:
             data = ' '.join(r.get_text(strip=True) for r in row.find_all(["th", "td"]))
+            #abd then append all the data in a list
             weather_data_web1.append(data)
+            # to convert the list to string txt
             weather_data_text1 = '\n'.join(weather_data_web1)
     return weather_data_text1
+
 def weather2():
     weather_url = "https://www.timeanddate.com/weather/"
     weather = weather_url + user_input
@@ -37,7 +44,9 @@ def weather2():
            weather_data_web2.append(data)
            weather_data_text2 = '\n'.join(weather_data_web2)
     return weather_data_text2
+
 def time_zone():
+    # here is the same code as def weather 1 because the both are in a table
     weather_url = "https://www.timeanddate.com/time/zone/"
     weather = weather_url + user_input
     weather_page = requests.get(weather)
